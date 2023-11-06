@@ -1,0 +1,27 @@
+
+GET http://localhost:8080/clientes
+
+######
+
+POST http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+    "nombre": "Elkin Angulo",
+    "numero_documento": "1111756702",
+    "telefono": "3136961050",
+    "correo": "elkin@correo.com"
+}
+
+######
+
+PUT http://localhost:8080/clientes/1
+Content-Type: application/json
+
+{
+    "nombre": "Samir Angulo"
+}
+
+######
+
+DELETE http://localhost:8080/clientes/1

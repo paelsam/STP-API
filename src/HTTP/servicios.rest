@@ -1,0 +1,27 @@
+GET http://localhost:8080/servicios
+
+######
+
+POST http://localhost:8080/servicios
+Content-Type: application/json
+
+{
+    "nombre": "El Jorry",
+    "descripcion": "Corte de cabello popular últimamente",
+    "imagen": "https://google.com",
+    "tiempo_servicio": 30
+}
+
+######
+
+PUT http://localhost:8080/servicios/1
+Content-Type: application/json
+
+{
+    "nombre": "The Jorry"
+}
+
+######
+
+DELETE  http://localhost:8080/servicios/1
+

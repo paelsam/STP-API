@@ -1,0 +1,14 @@
+
+GET http://localhost:8080/empleados
+
+######
+
+POST http://localhost:8080/empleados
+Content-Type: application/json
+
+{
+    "nombre": "Samir Angulo",
+    "telefono": "3136961050",
+    "correo": "samir@correo.com",
+    "password": "Samir643"
+}
