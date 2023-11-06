@@ -1,11 +1,12 @@
 import { Router } from "express";
 import { Servicio } from "../models/Servicio.js";
+import { auth } from "../middlewares/auth.middleware.js"
 
 
 const router = Router();
 
 // Obteniendo todos los servicio
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try {
         const servicios = await Servicio.findAll();
         res.json(servicios);
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 // Obteniendo un solo servicio
-router.get('/:id', async (req, res) => {
+router.get('/:id', auth, async (req, res) => {
     const { id: id_servicio } = req.params;
     try {
         const servicio = await Servicio.findByPk(id_servicio);
@@ -29,7 +30,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Creando un servicio
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
     const { nombre, descripcion, imagen, tiempo_servicio } = req.body;
 
     try {
@@ -57,7 +58,7 @@ router.post('/', async (req, res) => {
 });
 
 // Eliminando un servicio
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
     const { id: id_servicio } = req.params;
     try {
         await Servicio.destroy({ where: { id_servicio } });
@@ -68,7 +69,7 @@ router.delete('/:id', async (req, res) => {
 });
 
 // Actualizando un servicio
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
     const { id: id_servicio } = req.params;
     try {
         const servicio = await Servicio.findByPk(id_servicio);
@@ -78,8 +79,7 @@ router.put('/:id', async (req, res) => {
     } catch ({ message }) {
         res.status(500).json({ message });
     }
-
-})
+});
 
 
 

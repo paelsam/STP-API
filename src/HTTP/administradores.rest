@@ -1,0 +1,23 @@
+
+GET http://localhost:8080/administradores
+
+######
+
+POST http://localhost:8080/administradores
+Content-Type: application/json
+
+{
+    "nombre": "Paelsam",
+    "correo": "paelsam@correo.com",
+    "password": "072005"
+}
+
+######
+
+POST http://localhost:8080/administradores/login
+Content-Type: application/json
+
+{
+    "correo": "paelsam@correo.com",
+    "password": "072005"
+}

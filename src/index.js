@@ -6,18 +6,19 @@ import clientes from './routes/cliente.routes.js';
 import servicios from './routes/servicio.routes.js';
 import empleados from './routes/empleado.routes.js';
 import turnos from './routes/turno.routes.js';
+import administradores from './routes/administrador.routes.js'
 
 const app = express(); // Creando la aplicación
 const port = process.env.PORT || 8080; // Puerto de la app
 
 (async () => {
     try {
-        await database.sync({ force: true });
+        await database.sync({ force: false });
         console.log("Conectado a la base de datos");
     } catch (error) {
         throw new Error(error);
     }
-})()
+})();
 
 // Middlewares
 app.use(express.json()); // Recibir información en JSON
@@ -27,6 +28,7 @@ app.use('/clientes', clientes);
 app.use('/servicios', servicios);
 app.use('/empleados', empleados);
 app.use('/turnos', turnos);
+app.use('/administradores', administradores);
 
 app.listen(port, () => {
     console.log('Servidor ejecutándose en el puerto', port);
