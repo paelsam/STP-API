@@ -3,6 +3,10 @@ GET http://localhost:8080/turnos
 
 ######
 
+GET http://localhost:8080/turnos/cliente/1111756702
+
+######
+
 POST http://localhost:8080/turnos
 Content-Type: application/json
 
