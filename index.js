@@ -24,6 +24,9 @@ const port = process.env.PORT || 8080; // Puerto de la app
 app.use(express.json()); // Recibir información en JSON
 app.use(cors()); // Habilitar otras aplicaciones para realizar solicitudes al server
 
+app.use('/', (req, res) => {
+    res.send("STP-API");
+})
 app.use('/clientes', clientes);
 app.use('/servicios', servicios);
 app.use('/empleados', empleados);
