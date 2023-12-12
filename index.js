@@ -1,12 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 
-import { database } from './database/database.js';
-import clientes from './routes/cliente.routes.js';
-import servicios from './routes/servicio.routes.js';
-import empleados from './routes/empleado.routes.js';
-import turnos from './routes/turno.routes.js';
-import administradores from './routes/administrador.routes.js'
+import { database } from './src/database/database.js';
+import clientes from './src/routes/cliente.routes.js';
+import servicios from './src/routes/servicio.routes.js';
+import empleados from './src/routes/empleado.routes.js';
+import turnos from './src/routes/turno.routes.js';
+import administradores from './src/routes/administrador.routes.js'
 
 const app = express(); // Creando la aplicación
 const port = process.env.PORT || 8080; // Puerto de la app
